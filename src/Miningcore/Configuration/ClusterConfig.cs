@@ -348,6 +348,7 @@ namespace Miningcore.Configuration
     {
         // ReSharper disable once InconsistentNaming
         PPLNS = 1,
+        PPS = 2,
         Solo
     }
 
