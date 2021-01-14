@@ -5,17 +5,17 @@ using System.Data.Common;
 using System.Linq;
 using System.Net.Sockets;
 using System.Threading.Tasks;
-using MiningHub.Core.Configuration;
-using MiningHub.Core.Extensions;
-using MiningHub.Core.Persistence;
-using MiningHub.Core.Persistence.Model;
-using MiningHub.Core.Persistence.Repositories;
-using MiningHub.Core.Util;
+using Miningcore.Configuration;
+using Miningcore.Extensions;
+using Miningcore.Persistence;
+using Miningcore.Persistence.Model;
+using Miningcore.Persistence.Repositories;
+using Miningcore.Util;
 using NLog;
 using Polly;
-using Contract = MiningHub.Core.Contracts.Contract;
+using Contract = Miningcore.Contracts.Contract;
 
-namespace MiningHub.Core.Payments.PaymentSchemes
+namespace Miningcore.Payments.PaymentSchemes
 {
     /// <summary>
     /// PPLNS payout scheme implementation
@@ -194,7 +194,7 @@ namespace MiningHub.Core.Payments.PaymentSchemes
                     // determine a share's overall score
                     //var score = (decimal)(share.Difficulty / share.NetworkDifficulty);
                     var score = (decimal)(share.Difficulty / Blockchain.Ethereum.EthereumConstants.ScoreFactor);
-                    
+
                     if (!scores.ContainsKey(address))
                         scores[address] = score;
                     else
@@ -225,7 +225,7 @@ namespace MiningHub.Core.Payments.PaymentSchemes
                                 else
                                     rewards[address] += reward;
                             }
-                            
+
                             blockRewardRemaining -= reward;
                         }
                     }
